@@ -19,6 +19,7 @@ export class HealthbarComponent implements OnInit {
 
   calculatePourcentageRemaning() {
     this.pourcentage = this.health / this.maxHealth  * 100;
+    return this.pourcentage;
   }
 
 

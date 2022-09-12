@@ -1,4 +1,3 @@
-<app-healthbar [health]="" [maxHealth]=""></app-healthbar> créature
-<app-healthbar [health]="" [maxHealth]=""></app-healthbar> joueur
-
-<button>Attaquer</button>
+<app-healthbar [health]="this.sceneManagerService.Creature._health" [maxHealth]="this.sceneManagerService.Creature._maxHealth"></app-healthbar> créature
+<app-healthbar [health]="this.sceneManagerService.Player._health" [maxHealth]="this.sceneManagerService.Player._maxHealth"></app-healthbar> joueur
+<app-attack-button ></app-attack-button>

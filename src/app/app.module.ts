@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { CombatSceneComponent } from './app.component';
 import { HealthbarComponent } from './healthbar/healthbar.component';
+import { AttackButtonComponent } from './attack-button/attack-button.component';
 
 @NgModule({
   declarations: [
     CombatSceneComponent,
-    HealthbarComponent
+    HealthbarComponent,
+    AttackButtonComponent
   ],
   imports: [
     BrowserModule

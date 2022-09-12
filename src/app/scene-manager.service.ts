@@ -125,7 +125,9 @@ export class SceneManagerService {
 
   constructor() {
     this.Player = new Player("Quentin", 20, 300, 1);
+    this.Player._health = 150;
     this.Creature = new Creature("Matth", 20, 10, 1);
+    this.Creature._health = 5;
   }
 
 }
