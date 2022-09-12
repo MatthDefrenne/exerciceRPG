@@ -10,15 +10,15 @@ export class HealthbarComponent implements OnInit {
 
   @Input() health: number = 0;
   @Input() maxHealth: number = 0;
-  public pourcentage = 74;
+  public pourcentage = 0;
   constructor() { }
 
   ngOnInit(): void {
-
+    this.calculatePourcentageRemaning();
   }
 
   calculatePourcentageRemaning() {
-
+    this.pourcentage = this.health / this.maxHealth  * 100;
   }
 
 
