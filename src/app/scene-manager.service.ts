@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 class CombatScene {
 
-  round: number = 0;
+  round: number = 1;
   inProgress: boolean = true;
   creature: Creature;
   player: Player;
@@ -46,6 +46,7 @@ class Unit {
   OnReceiveDamage(victim: Unit) {
     if (victim._health < 0) {
       victim._health = 0;
+      victim._isAlive = false;
     }
   }
 };
@@ -122,7 +123,7 @@ class Spell {
 })
 export class SceneManagerService {
 
-  CombatScene: CombatScene
+  CombatScene: CombatScene;
   Player: Player;
   Creature: Creature;
 
