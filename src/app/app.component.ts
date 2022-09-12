@@ -119,14 +119,5 @@ class Spell {
 })
 export class CombatSceneComponent {
 
-  public round = 0;
-
-  IncrementRound() {
-    this.round += 1;
-  }
-
-  CheckIfGameIsOver(): boolean {
-    return false;
-  }
 
 }

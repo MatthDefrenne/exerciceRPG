@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-healthbar',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./healthbar.component.scss']
 })
 export class HealthbarComponent implements OnInit {
+
+  @Input() hp = 0;
+  public pourcentage = 100;
 
   constructor() { }
 
