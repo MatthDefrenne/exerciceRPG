@@ -16,11 +16,7 @@ export class AttackButtonComponent implements OnInit {
   }
 
   AttackButton(){
-
-    this.sceneManagerService.Creature._health -= this.sceneManagerService.Player._damage;
-    console.log('attack');
-    
-    
+    this.sceneManagerService.Player.MeleeAttack(this.sceneManagerService.Player, this.sceneManagerService.Creature);
   }
   
 }
