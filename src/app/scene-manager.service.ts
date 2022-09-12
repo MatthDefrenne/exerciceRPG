@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 
 
 class CombatScene {
+
   round: number = 0;
   inProgress: boolean = true;
   creature: Creature;
   player: Player;
-
+  private winner: string = "";
   constructor(player: Player, creature: Creature) {
     this.player = player;
     this.creature = creature;
@@ -121,12 +122,14 @@ class Spell {
 })
 export class SceneManagerService {
 
+  CombatScene: CombatScene
   Player: Player;
   Creature: Creature;
 
   constructor() {
     this.Player = new Player("Quentin", 20, 300, 1);
     this.Creature = new Creature("Matth", 20, 150, 1);
+    this.CombatScene = new CombatScene(this.Player, this.Creature);
   }
 
 }
