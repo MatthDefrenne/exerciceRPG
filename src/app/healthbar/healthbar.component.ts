@@ -8,9 +8,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 })
 export class HealthbarComponent implements OnInit {
 
-  @Input() hp = 0;
-  public pourcentage = 100;
-
+  public pourcentage = 74;
   constructor() { }
 
   ngOnInit(): void {
