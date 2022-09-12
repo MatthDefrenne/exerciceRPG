@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { AttackButtonComponent } from './attack-button/attack-button.component';
 
 
 
 class CombatScene {
 
-  round: number = 0;
+  round: number = 1;
   inProgress: boolean = true;
   creature: Creature;
   player: Player;
@@ -15,9 +16,19 @@ class CombatScene {
   }
 
   nextRound() {
-    this.round += 1;
-  }
+    
+    if(this.inProgress){
+      this.round += 1;
 
+    }
+  }
+  
+ 
+
+
+  creatureAttaque(){
+    this.creature.MeleeAttack(this.creature, this.player,this.inProgress );
+  }
 }
 
 class Unit {
@@ -38,16 +49,21 @@ class Unit {
     this._size = size;
   }
   // methods
-  MeleeAttack(attacker: Unit, victim: Unit) {
-    victim._health -= attacker._damage
-    this.OnReceiveDamage(victim);
+  MeleeAttack(attacker: Unit, victim: Unit, _canDommage: boolean) {
+    if(_canDommage){
+      victim._health -= attacker._damage
+      this.OnReceiveDamage(victim);
+    }
   }
 
   OnReceiveDamage(victim: Unit) {
     if (victim._health < 0) {
       victim._health = 0;
+      victim._isAlive = false;
     }
   }
+
+  
 };
 
 class Player extends Unit {
@@ -86,7 +102,10 @@ class Creature extends Unit {
     super(name, damage, health, size);
     this._debuffs = [];
   }
-};
+
+ 
+  }
+
 
 class Item {
   _name: string;
@@ -122,14 +141,17 @@ class Spell {
 })
 export class SceneManagerService {
 
-  CombatScene: CombatScene
   Player: Player;
   Creature: Creature;
+  CombatScene: CombatScene;
+  
+  
 
   constructor() {
     this.Player = new Player("Quentin", 20, 300, 1);
     this.Creature = new Creature("Matth", 20, 150, 1);
     this.CombatScene = new CombatScene(this.Player, this.Creature);
   }
-
+  
+  
 }

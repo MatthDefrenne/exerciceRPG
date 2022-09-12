@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SceneManagerService } from '../scene-manager.service';
+import { UiManagerService } from '../ui-manager.service';
 
 @Component({
   selector: 'app-attack-button',
@@ -8,7 +9,7 @@ import { SceneManagerService } from '../scene-manager.service';
 })
 export class AttackButtonComponent implements OnInit {
 
-  constructor(public sceneManagerService: SceneManagerService) {
+  constructor(public sceneManagerService: SceneManagerService, public uiManager: UiManagerService) {
 
   }
 
@@ -16,7 +17,12 @@ export class AttackButtonComponent implements OnInit {
   }
 
   AttackButton(){
-    this.sceneManagerService.Player.MeleeAttack(this.sceneManagerService.Player, this.sceneManagerService.Creature);
+    
+    this.sceneManagerService.Player.MeleeAttack(this.sceneManagerService.Player, this.sceneManagerService.Creature, this.sceneManagerService.CombatScene.inProgress);
+    this.sceneManagerService.CombatScene.creatureAttaque();
+    this.sceneManagerService.CombatScene.nextRound();
+    this.uiManager.WinnerIs();
+
   }
   
 }

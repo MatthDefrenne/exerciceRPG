@@ -1,3 +1,4 @@
 <app-healthbar [health]="this.sceneManagerService.Creature._health" [maxHealth]="this.sceneManagerService.Creature._maxHealth"></app-healthbar>
 <app-healthbar [health]="this.sceneManagerService.Player._health" [maxHealth]="this.sceneManagerService.Player._maxHealth"></app-healthbar>
 <app-attack-button></app-attack-button>
+<div >{{ this.sceneManagerService.CombatScene.round }}</div>
